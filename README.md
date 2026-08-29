@@ -129,7 +129,7 @@ NEXT_PUBLIC_ALLOY_NETWORK=localhost
 | | |
 |---|---|
 | Chain ID | `10143` |
-| RPC | `https://rpc.testnet.monad.xyz` |
+| RPC | `https://testnet-rpc.monad.xyz` |
 | Explorer | `https://testnet.monadexplorer.com` |
 | Native currency | `MON` |
 
@@ -246,7 +246,7 @@ NEXT_PUBLIC_ALLOY_NETWORK=testnet
 ```
 
 Monad Testnet uses chain ID `10143`, native currency `MON`, RPC
-`https://rpc.testnet.monad.xyz`, and explorer
+`https://testnet-rpc.monad.xyz`, and explorer
 `https://testnet.monadexplorer.com`. The wallet must be on chain 10143 before
 mint, redeem, approval, or faucet transactions can be signed.
 
@@ -316,7 +316,7 @@ not be used with mainnet funds.
 Create a root `.env`:
 
 ```dotenv
-MONAD_TESTNET_RPC=https://rpc.testnet.monad.xyz
+MONAD_TESTNET_RPC=https://testnet-rpc.monad.xyz
 DEPLOYER_KEY=0xYOUR_PRIVATE_KEY
 MONAD_EXPLORER_API_KEY=
 ```

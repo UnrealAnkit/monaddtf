@@ -50,7 +50,7 @@ export const ORACLE_ROUTER_ADDRESS = manifest.oracleRouter;
 export const RPC_URL =
   NETWORK === "localhost"
     ? (process.env.NEXT_PUBLIC_LOCAL_RPC_URL ?? "http://127.0.0.1:8545")
-    : (process.env.NEXT_PUBLIC_MONAD_TESTNET_RPC ?? "https://rpc.testnet.monad.xyz");
+    : (process.env.NEXT_PUBLIC_MONAD_TESTNET_RPC ?? "https://testnet-rpc.monad.xyz");
 
 export const EXPLORER_URL = NETWORK === "localhost" ? "" : "https://testnet.monadexplorer.com";
 export const TESTNET_FAUCET_URL = NETWORK === "localhost" ? "" : "https://faucet.monad.xyz";
