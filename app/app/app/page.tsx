@@ -176,6 +176,13 @@ export default function AppDashboard() {
               <StatCard label="YOUR SHARES" value={`${fmtUnits(shareBalance, SHARE_DECIMALS, 4)} ${SHARE_SYMBOL}`} />
             </section>
 
+            {!nav && (
+              <Card className="mt-6 rounded-2xl border-[#d95b21]/30 bg-[#fff7f2] px-6 py-4 text-sm text-[#b34d1d]">
+                Live NAV is temporarily unavailable from the Monad testnet oracle/RPC. Asset balances and
+                redemption remain readable; refresh shortly to restore NAV and prices.
+              </Card>
+            )}
+
             <section className="mt-8 grid gap-6 lg:grid-cols-2">
               <Card className="rounded-3xl border-black/10 p-8 shadow-sm">
                 <div className="mb-4 flex items-center justify-between">
