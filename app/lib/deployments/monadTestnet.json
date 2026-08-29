@@ -1,0 +1,31 @@
+{
+  "network": "monadTestnet",
+  "chainId": 10143,
+  "deployer": "0x2DfD6528783be6127Cd3d1af6feDb58f920e524B",
+  "entryToken": {
+    "symbol": "mMON",
+    "address": "0x56b16A3D35D9dC84B195342eF40767A5969c563E"
+  },
+  "assets": [
+    {
+      "symbol": "mGOV",
+      "address": "0x9c3657D1B249622D15381B543f550Dee0c1CC362",
+      "weightBps": 4000
+    },
+    {
+      "symbol": "mLSMON",
+      "address": "0xCD9147797430286F5d5C9512AD5Fbb55aABd6138",
+      "weightBps": 4000
+    },
+    {
+      "symbol": "mUSD",
+      "address": "0x8F2938Bc8795401c9F1537fab363325511538587",
+      "weightBps": 2000
+    }
+  ],
+  "oracleRouter": "0x3b5aFf6988cF5a908AD141A666BC30D491011463",
+  "swapRouter": "0x5ED9960a7E71359393C700A6F1684109753448aE",
+  "factory": "0x4a06c7B07D0Ee0E163d26e6ebaFbE0E2CAa5E358",
+  "demoVault": "0x77271B49Eb51a2B1c9c768f4EAB316bD3f832D56",
+  "txHash": "0x0a6d41c064bd5c9b8e5e7a0bb2ce93f27c77d4edf416f785b33bcbaaeaeb13e7"
+}

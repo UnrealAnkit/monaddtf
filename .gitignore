@@ -1,0 +1,14 @@
+node_modules/
+**/node_modules/
+artifacts/
+cache/
+typechain-types/
+**/.next/
+coverage/
+coverage.json
+.env
+**/.env*
+!**/.env.example
+**/next-env.d.ts
+*.log
+deployments/*.json
