@@ -39,13 +39,19 @@ export function errorMessage(error: unknown): string {
 }
 
 let readProvider: JsonRpcProvider | BrowserProvider | undefined;
+let readInjectedProvider: Eip1193Provider | undefined;
 function getReadProvider(): JsonRpcProvider | BrowserProvider {
   // Prefer the wallet's provider when it is present. This keeps the dashboard
   // on the same Monad endpoint that successfully signs writes and avoids a
   // separate public-RPC/CORS failure making live values disappear.
   const injected = ethProvider();
   if (injected) {
-    if (!(readProvider instanceof BrowserProvider)) readProvider = new BrowserProvider(injected);
+    // Extensions can replace the injected provider after reconnecting or
+    // recovering from an extension restart. Do not keep using the old object.
+    if (!(readProvider instanceof BrowserProvider) || readInjectedProvider !== injected) {
+      readProvider = new BrowserProvider(injected);
+      readInjectedProvider = injected;
+    }
     return readProvider;
   }
   // Do not start ethers' background network-detection loop in the browser. The

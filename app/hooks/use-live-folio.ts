@@ -6,6 +6,7 @@
 // (or oracle) is unreachable.
 
 import { useEffect, useRef, useState } from "react";
+import { useWallet } from "@/components/app/wallet-provider";
 import {
   AssetInfo,
   NavInfo,
@@ -18,6 +19,9 @@ import {
 } from "@/lib/folio";
 
 export function useLiveFolio() {
+  // Re-read after MetaMask switches networks; otherwise a page opened on the
+  // wrong chain can stay stuck with empty or stale values.
+  const { chainId } = useWallet();
   const [assets, setAssets] = useState<AssetInfo[]>([]);
   const [prices, setPrices] = useState<Record<string, PriceData | null>>({});
   const [nav, setNav] = useState<NavInfo | null>(null);
@@ -60,7 +64,7 @@ export function useLiveFolio() {
       alive = false;
       clearInterval(t);
     };
-  }, []);
+  }, [chainId]);
 
   return { assets, prices, nav, supply, balances };
 }

@@ -47,7 +47,7 @@ export default function Home() {
         <div className="relative">
           <Stats nav={nav} supply={supply} />
           <Ticker items={buildTickerItems(assets, prices, balances)} />
-          <BasketSection slices={buildSlices(assets)} rows={buildBasketRows(assets, prices)} />
+          <BasketSection slices={buildSlices(assets)} rows={buildBasketRows(assets, prices, balances)} />
           <HowItWorks />
           <Features />
           <Cta />
