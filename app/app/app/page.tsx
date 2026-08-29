@@ -29,6 +29,7 @@ import {
 import { buildBasketRows, buildSlices } from "@/components/landing/data";
 import { Donut } from "@/components/landing/donut";
 import { useLiveFolio } from "@/hooks/use-live-folio";
+import { AppNav } from "@/components/app/app-nav";
 
 export default function AppDashboard() {
   const { address, isConnected, isCorrectNetwork, disconnect, openModal, switchNetwork } = useWallet();
@@ -143,6 +144,7 @@ export default function AppDashboard() {
             </Button>
           )}
         </header>
+        <AppNav />
 
         {!isConnected ? (
           <Card className="mt-16 flex flex-col items-center gap-4 rounded-3xl border-black/10 p-16 text-center shadow-sm">
