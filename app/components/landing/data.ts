@@ -48,6 +48,7 @@ export interface BasketRow {
   color: string;
   weight: number;
   price: string;
+  held: string;
   simulated?: boolean;
 }
 
@@ -81,13 +82,14 @@ export function buildTickerItems(
       }));
 }
 
-export function buildBasketRows(assets: AssetInfo[], prices: Prices): BasketRow[] {
+export function buildBasketRows(assets: AssetInfo[], prices: Prices, balances: bigint[] | null = null): BasketRow[] {
   return assets.length
-    ? assets.map((a) => ({
+    ? assets.map((a, i) => ({
         symbol: tokenSymbol(a.token),
         color: TOKEN_INFO[a.token]?.color ?? "#888",
         weight: a.weight_bps / 100,
         price: prices[a.token] ? `$${fmtUnits(prices[a.token]!.price, PRICE_DECIMALS, 6)}` : "···",
+        held: balances?.[i] !== undefined ? fmtUnits(balances[i], a.decimals, 4) : "···",
         simulated: TOKEN_INFO[a.token]?.simulated,
       }))
     : BASKET_FALLBACK.map((b) => ({
@@ -95,6 +97,7 @@ export function buildBasketRows(assets: AssetInfo[], prices: Prices): BasketRow[
         color: b.color,
         weight: b.weight_bps / 100,
         price: "···",
+        held: "···",
         simulated: b.simulated,
       }));
 }

@@ -178,18 +178,24 @@ export default function AppDashboard() {
 
             <section className="mt-8 grid gap-6 lg:grid-cols-2">
               <Card className="rounded-3xl border-black/10 p-8 shadow-sm">
+                <div className="mb-4 flex items-center justify-between">
+                  <h3 className="font-heading text-sm font-bold tracking-widest">BASKET COMPOSITION</h3>
+                  <span className="text-[11px] text-gray-400">TARGET · HELD</span>
+                </div>
                 <div className="flex justify-center">
                   <Donut slices={buildSlices(assets)} active={null} />
                 </div>
-                <div className="mt-6 space-y-2">
-                  {buildBasketRows(assets, prices).map((row) => (
+                <div className="mt-6 space-y-3">
+                  {buildBasketRows(assets, prices, balances).map((row) => (
                     <div key={row.symbol} className="flex items-center justify-between text-sm">
                       <span className="flex items-center gap-2 font-medium">
                         <span className="h-2 w-2 rounded-full" style={{ background: row.color }} />
                         {row.symbol}
                       </span>
-                      <span className="tabular-nums text-gray-500">
-                        {row.price} · {row.weight.toFixed(0)}%
+                      <span className="flex items-center gap-3 tabular-nums text-gray-500">
+                        <span>{row.price}</span>
+                        <span className="text-[#1f4fb4]">{row.weight.toFixed(0)}%</span>
+                        <span className="min-w-[4.5rem] text-right text-gray-700">{row.held}</span>
                       </span>
                     </div>
                   ))}
